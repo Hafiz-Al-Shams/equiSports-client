@@ -1,14 +1,33 @@
+import { useContext } from "react";
 import { Link, NavLink } from "react-router-dom";
+import { AuthContext } from "../providers/AuthProvider";
 
 
 
 const Navbar = () => {
 
+    const { user, logOutUser } = useContext(AuthContext);
+    console.log(user);
+
+    const handleLogOut = () => {
+        logOutUser()
+            .then(() => {
+                console.log('user log out successful')
+            })
+            .catch(error => console.log('ERROR', error.message))
+    }
+
+
+
     const links = <>
         <li><NavLink to="/">Home</NavLink></li>
         <li><NavLink to="/allEquipments">All Equipments</NavLink></li>
-        <li><NavLink to="/addEquipments">Add</NavLink></li>
-        <li><NavLink to="/myEquipmentsList">My List</NavLink></li>
+        {
+            user && <>
+                <li><NavLink to="/addEquipments">Add</NavLink></li>
+                <li><NavLink to="/myEquipmentsList">My List</NavLink></li>
+            </>
+        }
     </>
 
 
@@ -32,21 +51,34 @@ const Navbar = () => {
                     </div>
                     <ul
                         tabIndex={0}
-                        className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow">
+                        className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow space-y-2">
                         {links}
                     </ul>
                 </div>
-                <Link to="/" className="text-2xl">EquiSports</Link>
+                <Link to="/" className="text-2xl">SportsSphere</Link>
             </div>
             <div className="navbar-center hidden lg:flex">
-                <ul className="menu menu-horizontal px-1">
+                <ul className="menu menu-horizontal px-1 space-x-4">
                     {links}
                 </ul>
             </div>
             <div className="navbar-end">
-                <NavLink to="/login"><button className="btn btn-ghost">Login</button></NavLink>
-                <p className="px-3">or</p>
-                <NavLink to="/register"><button className="btn btn-ghost">Register</button></NavLink>
+                {
+                    user ?
+                        <>
+                            <div className="flex justify-center items-center gap-3">
+                                <div><img src="" alt="" /></div>
+                                <p title={user?.email}>{user?.email}</p>
+                                <div><a onClick={handleLogOut} className="btn">Log Out</a></div>
+                            </div>
+                        </>
+                        :
+                        <>
+                            <NavLink to="/login"><button className="btn btn-ghost">Login</button></NavLink>
+                            <p className="px-1">or</p>
+                            <NavLink to="/register"><button className="btn btn-ghost">Register</button></NavLink>
+                        </>
+                }
             </div>
         </div>
     );

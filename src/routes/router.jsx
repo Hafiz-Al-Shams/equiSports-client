@@ -9,6 +9,7 @@ import MyEquipts from "../components/MyEquipts";
 import ViewDetails from "../components/ViewDetails";
 import ErrorPage from "../components/ErrorPage";
 import Layout from "../layouts/Layout";
+import PrivateRoute from "./PrivateRoute";
 
 
 
@@ -29,11 +30,11 @@ const router = createBrowserRouter([
             },
             {
                 path: '/addEquipments',
-                element: <AddEquipts></AddEquipts>,
+                element: <PrivateRoute><AddEquipts></AddEquipts></PrivateRoute>,
             },
             {
-                path: '/updateEquipments/:id',
-                element: <UpdateEquipts></UpdateEquipts>,
+                path: '/updateEquipments',
+                element: <PrivateRoute><UpdateEquipts></UpdateEquipts></PrivateRoute>,
                 // loader: ({ params }) => fetch(`https://coffee-store-server-six-pink.vercel.app/coffee/${params.id}`)
             },
             {
@@ -46,12 +47,12 @@ const router = createBrowserRouter([
             },
             {
                 path: '/myEquipmentsList',
-                element: <MyEquipts></MyEquipts>,
+                element: <PrivateRoute><MyEquipts></MyEquipts></PrivateRoute>,
                 // loader: () => fetch('https://coffee-store-server-six-pink.vercel.app/users')
             },
             {
                 path: '/viewDetails',
-                element: <ViewDetails></ViewDetails>,
+                element: <PrivateRoute><ViewDetails></ViewDetails></PrivateRoute>,
                 // loader: () => fetch('https://coffee-store-server-six-pink.vercel.app/users')
             },
         ]
