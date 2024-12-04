@@ -8,27 +8,32 @@ import { Helmet } from "react-helmet-async";
 const SignUp = () => {
 
     const navigate = useNavigate();
-    const { createUser } = useContext(AuthContext);
+    const { createUser, updateUserProfile } = useContext(AuthContext);
 
 
     const handleSignup = e => {
         e.preventDefault();
         const name = e.target.name.value;
-        const photoURL = e.target.photoURL.value;
+        const photo = e.target.photoURL.value;
         const email = e.target.email.value;
         const password = e.target.password.value;
-        // console.log(name, photoURL, email, password);
 
         createUser(email, password)
             .then(result => {
                 console.log(result.user);
-                // e.target.reset();
-                // navigate('/addEquipments');
+
+                updateUserProfile({ displayName: name, photoURL: photo })
+                    .then(() => {
+                        // navigate('/addEquipments');
+                        // e.target.reset();
+                    })
+                    .catch(err => {
+                        console.log(err);
+                    })
             })
             .catch(error => {
                 console.log('ERROR', error.message)
             })
-
     }
 
 

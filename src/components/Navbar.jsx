@@ -67,8 +67,7 @@ const Navbar = () => {
                     user ?
                         <>
                             <div className="flex justify-center items-center gap-3">
-                                <div><img src="" alt="" /></div>
-                                <p title={user?.email}>{user?.email}</p>
+                                <div><img className="w-11 rounded-full" title={user?.displayName} src={user?.photoURL} alt="" /></div>
                                 <div><a onClick={handleLogOut} className="btn">Log Out</a></div>
                             </div>
                         </>
