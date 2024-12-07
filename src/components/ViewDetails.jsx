@@ -20,7 +20,7 @@ const ViewDetails = () => {
     const handleEdit = () => {
         Swal.fire({
             title: 'Invalid Authority',
-            text: 'you can only edit equipment from your own list',
+            text: 'You can only Edit Equipment from your Own List',
             icon: 'error',
             confirmButtonText: 'understood'
         });

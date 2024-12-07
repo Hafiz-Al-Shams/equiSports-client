@@ -5,10 +5,42 @@ import 'react-awesome-slider/dist/styles.css';
 
 
 
+
+
 const Home = () => {
 
 
     const equipments = useLoaderData();
+
+
+
+    const reviews = [
+        {
+            id: 1,
+            name: "Jane Smith",
+            image: "https://i.pravatar.cc/100?img=1",
+            review:
+                "The quality of the products is top-notch! I found everything I needed for my cricket gear here.",
+            rating: 5,
+        },
+        {
+            id: 2,
+            name: "John Doe",
+            image: "https://i.ibb.co.com/87XQTzd/review24.jpg",
+            review:
+                "Fast delivery and amazing customer service. Highly recommend this store for all sports enthusiasts.",
+            rating: 4,
+        },
+        {
+            id: 3,
+            name: "David Johnson",
+            image: "https://i.pravatar.cc/100?img=3",
+            review:
+                "Great variety of products! Found the perfect running shoes for my marathon training.",
+            rating: 5,
+        },
+    ];
+
 
 
     return (
@@ -16,7 +48,7 @@ const Home = () => {
             <Helmet>
                 <title>SportsSphere | Home</title>
             </Helmet>
-            <h1 className="text-4xl text-center my-0">THIS is HOME</h1>
+            <h1 className="text-6xl font-semibold text-center my-10">SportsSphere - Elite Sports Shop</h1>
 
 
 
@@ -76,6 +108,107 @@ const Home = () => {
                     <button className="btn btn-secondary btn-lg">View All</button>
                 </Link>
             </div>
+
+
+            {/* reviews section */}
+            <section className="bg-blue-100 py-10">
+                <div className="max-w-6xl mx-auto px-6">
+                    <h2 className="text-3xl font-bold text-gray-800 text-center mb-8">
+                        What Our Customers Say
+                    </h2>
+                    <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+                        {reviews.map((review) => (
+                            <div
+                                key={review.id}
+                                className="bg-white rounded-lg shadow-lg p-6 flex flex-col items-center text-center"
+                            >
+                                <img
+                                    src={review.image}
+                                    alt={review.name}
+                                    className="w-20 h-20 rounded-full border-4 border-blue-500"
+                                />
+                                <h3 className="mt-4 text-xl font-semibold text-gray-800">
+                                    {review.name}
+                                </h3>
+                                <p className="mt-2 text-gray-600">{review.review}</p>
+                                <div className="mt-4 rating">
+                                    <input
+                                        type="radio"
+                                        name={`rating-${review.id}`}
+                                        className="mask mask-star bg-yellow-400"
+                                        disabled
+                                        checked={review.rating >= 1}
+                                    />
+                                    <input
+                                        type="radio"
+                                        name={`rating-${review.id}`}
+                                        className="mask mask-star bg-yellow-400"
+                                        disabled
+                                        checked={review.rating >= 2}
+                                    />
+                                    <input
+                                        type="radio"
+                                        name={`rating-${review.id}`}
+                                        className="mask mask-star bg-yellow-400"
+                                        disabled
+                                        checked={review.rating >= 3}
+                                    />
+                                    <input
+                                        type="radio"
+                                        name={`rating-${review.id}`}
+                                        className="mask mask-star bg-yellow-400"
+                                        disabled
+                                        checked={review.rating >= 4}
+                                    />
+                                    <input
+                                        type="radio"
+                                        name={`rating-${review.id}`}
+                                        className="mask mask-star bg-yellow-400"
+                                        disabled
+                                        checked={review.rating >= 5}
+                                    />
+                                </div>
+                            </div>
+                        ))}
+                    </div>
+                </div>
+            </section>
+
+
+
+            {/* newsletter section */}
+            <section className="bg-gray-100 py-10">
+                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div className="text-center">
+                        <h2 className="text-3xl font-bold text-gray-800 sm:text-4xl">
+                            Subscribe to Our Newsletter
+                        </h2>
+                        <p className="mt-4 text-gray-600">
+                            Stay updated on the latest sports gear, exclusive offers, and discounts!
+                        </p>
+                    </div>
+                    <div className="mt-8 flex justify-center">
+                        <div className="w-full max-w-md">
+                            <div className="flex items-center">
+                                <input
+                                    type="email"
+                                    placeholder="Enter your email"
+                                    className="flex-1 px-4 py-3 rounded-l-lg border border-gray-300 text-gray-700 focus:ring-2 focus:ring-blue-500 focus:outline-none"
+                                    required
+                                />
+                                <button
+                                    className="bg-blue-500 hover:bg-blue-600 text-white px-6 py-3 rounded-r-lg font-medium transition duration-300"
+                                >
+                                    Subscribe
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <p className="mt-4 text-sm text-gray-500 text-center">
+                        We respect your privacy. Unsubscribe at any time.
+                    </p>
+                </div>
+            </section>
 
 
 

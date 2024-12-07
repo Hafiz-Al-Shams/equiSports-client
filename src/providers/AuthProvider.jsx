@@ -59,22 +59,6 @@ const AuthProvider = ({ children }) => {
 
 
 
-    // onAuthStateChanged(auth, currentUser => {
-    //     if (currentUser) {
-    //         console.log('currently logged user', currentUser);
-    //         setUser(currentUser);
-    //     }
-    //     else {
-    //         console.log('no user logged in');
-    //         setUser(null);
-    //     }
-    // })
-
-
-
-
-
-
 
 
 
