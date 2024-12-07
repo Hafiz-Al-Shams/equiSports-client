@@ -20,7 +20,7 @@ const MyEquipts = () => {
             <Helmet>
                 <title>SportsSphere | My List</title>
             </Helmet>
-            <div className="flex justify-center items-center gap-10 pt-6 pb-8">
+            <div className="flex justify-center items-center gap-4 pt-6 pb-8">
                 <div className="w-40"><Lottie animationData={MyList}></Lottie></div>
                 <h1 className="mt-11 mb-8 text-4xl font-semibold">{`My Equipment List: ${equipments.length}`}</h1>
             </div>

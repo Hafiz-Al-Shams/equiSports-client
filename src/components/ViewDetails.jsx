@@ -35,9 +35,9 @@ const ViewDetails = () => {
             <Helmet>
                 <title>SportsSphere | Details</title>
             </Helmet>
-            <div className="flex justify-center items-center gap-12 pt-6 pb-2">
+            <div className="flex justify-center items-center gap-7 pt-6 pb-2">
                 <div className="w-40"><Lottie animationData={Details}></Lottie></div>
-                <h1 className="text-5xl font-bold">{`${name} Details`}</h1>
+                <h1 className="text-5xl font-bold">{name}</h1>
             </div>
             <div className="card lg:card-side bg-base-100 shadow-xl w-8/12 mx-auto mt-1">
                 <figure>
