@@ -16,6 +16,19 @@ const Home = () => {
             </Helmet>
             <h1 className="text-4xl text-center my-12">THIS is HOME</h1>
 
+
+            <div className="w-10/12 mx-auto">
+                <h2 className="text-3xl font-semibold text-center mt-16 mb-4">Sports Categories</h2>
+                <div className="flex gap-10">
+                    <Link><button className="btn btn-lg btn-outline btn-primary text-lg font-bold">Cricket</button></Link>
+                    <Link><button className="btn btn-lg btn-outline btn-primary text-lg font-bold">Badminton</button></Link>
+                    <Link><button className="btn btn-lg btn-outline btn-primary text-lg font-bold">Tennis</button></Link>
+                    <Link><button className="btn btn-lg btn-outline btn-primary text-lg font-bold">Football</button></Link>
+                </div>
+            </div>
+
+
+
             <div className="grid grid-cols-3 gap-y-24 w-9/12 mx-auto">
                 {
                     equipments.map(equipment => (

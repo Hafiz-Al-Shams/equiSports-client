@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useContext, useEffect, useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { AuthContext } from "../providers/AuthProvider";
 import Swal from "sweetalert2";
@@ -10,6 +10,22 @@ const Navbar = () => {
     const { user, logOutUser } = useContext(AuthContext);
     // console.log(user);
 
+
+    const [profilePhoto, setProfilePhoto] = useState('');
+    const [userName, setUserName] = useState('');
+
+    useEffect(() => {
+        if (user) {
+            setProfilePhoto(user.photoURL);
+            setUserName(user.displayName);
+        }
+    }, [user]);
+
+
+
+
+
+
     const handleLogOut = () => {
         logOutUser()
             .then(() => {
@@ -20,6 +36,8 @@ const Navbar = () => {
                     icon: 'warning',
                     confirmButtonText: 'ok'
                 });
+                setProfilePhoto('');
+                setUserName('');
             })
             .catch(error => console.log('ERROR', error.message))
     }
@@ -74,7 +92,7 @@ const Navbar = () => {
                     user ?
                         <>
                             <div className="flex justify-center items-center gap-3">
-                                <div><img className="w-11 rounded-full" title={user?.displayName} src={user?.photoURL} alt="" /></div>
+                                <div><img className="w-11 rounded-full" title={userName} src={profilePhoto} alt="" /></div>
                                 <div><a onClick={handleLogOut} className="btn">Log Out</a></div>
                             </div>
                         </>

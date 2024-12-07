@@ -49,12 +49,20 @@ const SignUp = () => {
                 updateUserProfile({ displayName: name, photoURL: photo })
                     .then(() => {
 
+                        // Swal.fire({
+                        //     title: 'Registration Successful',
+                        //     // text: 'Now please Login to continue',
+                        //     icon: 'success',
+                        //     confirmButtonText: 'ok'
+                        // });
+
+
                         logOutUser()
                             .then(() => {
                                 console.log('user log out successful');
                                 Swal.fire({
                                     title: 'Registration Successful',
-                                    text: 'Now please Login to continue',
+                                    text: 'Now please Login to Continue',
                                     icon: 'success',
                                     confirmButtonText: 'ok'
                                 });
@@ -62,9 +70,6 @@ const SignUp = () => {
                                 navigate('/login');
                             })
                             .catch(error => console.log('ERROR', error.message))
-
-
-
 
 
                     })
