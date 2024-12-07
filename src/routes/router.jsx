@@ -13,6 +13,8 @@ import PrivateRoute from "./PrivateRoute";
 
 
 
+
+
 const router = createBrowserRouter([
     {
         path: "/",
@@ -26,16 +28,16 @@ const router = createBrowserRouter([
             {
                 path: '/allEquipments',
                 element: <AllEquipts></AllEquipts>,
-                // loader: () => fetch('https://coffee-store-server-six-pink.vercel.app/coffee')
+                loader: () => fetch('http://localhost:5000/equipments')
             },
             {
                 path: '/addEquipments',
                 element: <PrivateRoute><AddEquipts></AddEquipts></PrivateRoute>,
             },
             {
-                path: '/updateEquipments',
+                path: '/updateEquipments/:id',
                 element: <PrivateRoute><UpdateEquipts></UpdateEquipts></PrivateRoute>,
-                // loader: ({ params }) => fetch(`https://coffee-store-server-six-pink.vercel.app/coffee/${params.id}`)
+                loader: ({ params }) => fetch(`http://localhost:5000/equipments/${params.id}`)
             },
             {
                 path: '/login',
@@ -48,12 +50,12 @@ const router = createBrowserRouter([
             {
                 path: '/myEquipmentsList',
                 element: <PrivateRoute><MyEquipts></MyEquipts></PrivateRoute>,
-                // loader: () => fetch('https://coffee-store-server-six-pink.vercel.app/users')
+                loader: () => fetch('http://localhost:5000/equipments')
             },
             {
-                path: '/viewDetails',
+                path: '/equipments/:equipmentId',
                 element: <PrivateRoute><ViewDetails></ViewDetails></PrivateRoute>,
-                // loader: () => fetch('https://coffee-store-server-six-pink.vercel.app/users')
+                loader: ({ params }) => fetch(`http://localhost:5000/equipments/${params.equipmentId}`)
             },
         ]
     },

@@ -2,13 +2,15 @@ import { useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../providers/AuthProvider";
 import { Helmet } from "react-helmet-async";
+import Swal from "sweetalert2";
 
 
 
 const SignUp = () => {
 
     const navigate = useNavigate();
-    const { createUser, updateUserProfile } = useContext(AuthContext);
+    const { createUser, updateUserProfile, logInWithGoogle, logOutUser } = useContext(AuthContext);
+
 
 
     const handleSignup = e => {
@@ -18,22 +20,81 @@ const SignUp = () => {
         const email = e.target.email.value;
         const password = e.target.password.value;
 
+        if (password.length < 6) {
+            Swal.fire({
+                // title: 'Error!',
+                text: 'Password must be 6 characters or longer',
+                icon: 'error',
+                confirmButtonText: 'Try Again'
+            });
+            return;
+        }
+
+        const passRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[A-Za-z\d]{6,15}$/;
+
+        if (!passRegex.test(password)) {
+            Swal.fire({
+                // title: 'Error!',
+                text: 'at least one number, one uppercase & one lowercase is needed',
+                icon: 'error',
+                confirmButtonText: 'Try Again'
+            });
+            return;
+        }
+
         createUser(email, password)
             .then(result => {
                 console.log(result.user);
 
                 updateUserProfile({ displayName: name, photoURL: photo })
                     .then(() => {
-                        // navigate('/addEquipments');
-                        // e.target.reset();
+
+                        logOutUser()
+                            .then(() => {
+                                console.log('user log out successful');
+                                Swal.fire({
+                                    title: 'Registration Successful',
+                                    text: 'Now please Login to continue',
+                                    icon: 'success',
+                                    confirmButtonText: 'ok'
+                                });
+                                e.target.reset();
+                                navigate('/login');
+                            })
+                            .catch(error => console.log('ERROR', error.message))
+
+
+
+
+
                     })
                     .catch(err => {
                         console.log(err);
+                        Swal.fire({
+                            title: 'Error!',
+                            icon: 'error',
+                            confirmButtonText: 'Try Again'
+                        });
                     })
             })
             .catch(error => {
                 console.log('ERROR', error.message)
             })
+    }
+
+
+    const handleGoogleLogIn = () => {
+        logInWithGoogle()
+            .then(result => {
+                console.log(result.user);
+                Swal.fire({
+                    title: 'Login Successful',
+                    icon: 'success',
+                    confirmButtonText: 'ok'
+                });
+                navigate('/myEquipmentsList');
+            })
+            .catch(error => console.log('ERROR', error.message))
     }
 
 
@@ -81,6 +142,9 @@ const SignUp = () => {
                         <Link to="/login">
                             <button className="mt-1.5 btn btn-neutral px-8">Login</button>
                         </Link>
+                    </div>
+                    <div className="text-center mt-3">
+                        <button onClick={handleGoogleLogIn} className="btn btn-ghost text-lg font-medium px-8">Log in with Google</button>
                     </div>
                 </div>
             </div>

@@ -1,40 +1,34 @@
 import { Helmet } from "react-helmet-async";
+import { useLoaderData } from "react-router-dom";
+import EquiptCard from "./EquiptCard";
+import { useState } from "react";
 
 
 
 const MyEquipts = () => {
+
+    const loadedEquipments = useLoaderData();
+
+    const [equipments, setEquipments] = useState(loadedEquipments);
+
+
     return (
-        <div className="text-center py-10">
+        <div className="m-20">
             <Helmet>
                 <title>SportsSphere | My List</title>
             </Helmet>
-            <ul>
-                <li>item-1</li>
-                <li>item-2</li>
-                <li>item-3</li>
-                <li>item-4</li>
-                <li>item-5</li>
-                <li>item-6</li>
-                <li>item-7</li>
-                <li>item-8</li>
-                <li>item-9</li>
-                <li>item-10</li>
-                <li>item-11</li>
-                <li>item-12</li>
-                <li>item-13</li>
-                <li>item-14</li>
-                <li>item-15</li>
-                <li>item-16</li>
-                <li>item-17</li>
-                <li>item-18</li>
-                <li>item-19</li>
-                <li>item-20</li>
-                <li>item-21</li>
-                <li>item-22</li>
-                <li>item-23</li>
-                <li>item-24</li>
-                <li>item-25</li>
-            </ul>
+            <h1 className="text-2xl text-center font-semibold mb-8">My Equipment List: {equipments.length}</h1>
+
+            <div className="grid grid-cols-3 gap-y-24">
+                {
+                    equipments.map(equipment => <EquiptCard
+                        key={equipment._id}
+                        equipment={equipment}
+                        equipments={equipments}
+                        setEquipments={setEquipments}
+                    ></EquiptCard>)
+                }
+            </div>
         </div>
     );
 };

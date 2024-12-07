@@ -2,6 +2,7 @@ import { useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../providers/AuthProvider";
 import { Helmet } from "react-helmet-async";
+import Swal from "sweetalert2";
 
 
 
@@ -20,11 +21,22 @@ const SignIn = () => {
         loginUser(email, password)
             .then(result => {
                 console.log(result.user);
+                Swal.fire({
+                    title: 'Login Successful',
+                    icon: 'success',
+                    confirmButtonText: 'ok'
+                });
                 // e.target.reset();
                 // navigate('/myEquipmentsList');
             })
             .catch(error => {
-                console.log('ERROR from Firebase', error.message)
+                console.log('ERROR from Firebase', error.message);
+                Swal.fire({
+                    title: 'Error!',
+                    text: 'Invalid Email or Password!!',
+                    icon: 'error',
+                    confirmButtonText: 'Try Again'
+                });
             })
 
     }
@@ -33,7 +45,12 @@ const SignIn = () => {
         logInWithGoogle()
             .then(result => {
                 console.log(result.user);
-                // navigate('/myEquipmentsList');
+                Swal.fire({
+                    title: 'Login Successful',
+                    icon: 'success',
+                    confirmButtonText: 'ok'
+                });
+                navigate('/myEquipmentsList');
             })
             .catch(error => console.log('ERROR', error.message))
     }

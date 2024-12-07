@@ -1,6 +1,7 @@
 import { useContext } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { AuthContext } from "../providers/AuthProvider";
+import Swal from "sweetalert2";
 
 
 
@@ -12,7 +13,13 @@ const Navbar = () => {
     const handleLogOut = () => {
         logOutUser()
             .then(() => {
-                console.log('user log out successful')
+                console.log('user log out successful');
+                Swal.fire({
+                    title: 'Log out done!',
+                    // text: 'Invalid Email or Password!!',
+                    icon: 'warning',
+                    confirmButtonText: 'ok'
+                });
             })
             .catch(error => console.log('ERROR', error.message))
     }
