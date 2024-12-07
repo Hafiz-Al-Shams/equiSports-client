@@ -3,6 +3,9 @@ import { Helmet } from "react-helmet-async";
 import { useLoaderData, useNavigate } from "react-router-dom";
 import { AuthContext } from "../providers/AuthProvider";
 import Swal from "sweetalert2";
+import Lottie from "lottie-react";
+
+import Update from '../Update.json'
 
 
 
@@ -78,13 +81,15 @@ const UpdateEquipts = () => {
                 <title>SportsSphere | Update</title>
             </Helmet>
             <div className='lg:w-3/4 mx-auto'>
-                <div className="text-center p-10">
+                {/* <div className="text-center p-10">
                     <h1 className="text-5xl font-bold">Update Equipment: {name}</h1>
-                    {/* <p className="py-6">
-                        Provident cupiditate voluptatem et in.Quaerat fugiat ut assumenda excepturi exercitationem
-                        quasi. In deleniti eaque aut repudiandae et a id nisi.
-                    </p> */}
+                </div> */}
+
+                <div className="flex justify-center items-center gap-12 pt-6 pb-8">
+                    <div className="w-28"><Lottie animationData={Update}></Lottie></div>
+                    <h1 className="text-5xl font-bold">Update Equipment: {name}</h1>
                 </div>
+
                 <div className="card bg-base-100 w-full shrink-0 shadow-2xl">
                     <form onSubmit={handleUpdateEquipment} className="card-body">
                         {/* form first row */}

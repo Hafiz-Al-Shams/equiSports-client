@@ -3,7 +3,9 @@ import { Link, useLoaderData } from "react-router-dom";
 import AwesomeSlider from 'react-awesome-slider';
 import 'react-awesome-slider/dist/styles.css';
 import { useState } from "react";
+import Lottie from "lottie-react";
 
+import DynamicHome from '../DynamicHome.json'
 
 
 
@@ -58,23 +60,28 @@ const Home = () => {
             <Helmet>
                 <title>SportsSphere | Home</title>
             </Helmet>
-            {/* mode changing section */}
-            <div className="text-right w-11/12 mx-auto pt-6">
-                <h1 className="text-lg font-semibold mb-1.5">
-                    {isDark ? "Dark Mode" : "Light Mode"}
-                </h1>
-                <button
-                    onClick={toggleTheme}
-                    className="btn btn-primary btn-sm"
-                >
-                    Toggle {isDark ? "Light" : "Dark"}
-                </button>
+
+
+
+
+            <div className="flex justify-between items-center w-11/12 mx-auto pt-0 pb-10">
+                <div className="w-40">
+                    <Lottie animationData={DynamicHome}></Lottie>
+                </div>
+                <h1 className="text-6xl font-semibold text-center">SportsSphere - Elite Sports Shop</h1>
+                {/* mode changing section */}
+                <div className="text-right">
+                    <h1 className="text-lg font-semibold mb-1">
+                        {isDark ? "Dark Mode" : "Light Mode"}
+                    </h1>
+                    <button
+                        onClick={toggleTheme}
+                        className="btn btn-primary btn-sm"
+                    >
+                        Toggle {isDark ? "Light" : "Dark"}
+                    </button>
+                </div>
             </div>
-
-
-
-            <h1 className="text-6xl font-semibold text-center pb-12 -mt-12">SportsSphere - Elite Sports Shop</h1>
-
 
 
 

@@ -3,6 +3,9 @@ import { Link, useLoaderData, useParams } from "react-router-dom";
 import { AuthContext } from "../providers/AuthProvider";
 import { useContext } from "react";
 import Swal from "sweetalert2";
+import Lottie from "lottie-react";
+
+import Details from '../Details.json'
 
 
 
@@ -32,7 +35,11 @@ const ViewDetails = () => {
             <Helmet>
                 <title>SportsSphere | Details</title>
             </Helmet>
-            <div className="card lg:card-side bg-base-100 shadow-xl w-8/12 mx-auto mt-20">
+            <div className="flex justify-center items-center gap-12 pt-6 pb-2">
+                <div className="w-40"><Lottie animationData={Details}></Lottie></div>
+                <h1 className="text-5xl font-bold">{`${name} Details`}</h1>
+            </div>
+            <div className="card lg:card-side bg-base-100 shadow-xl w-8/12 mx-auto mt-1">
                 <figure>
                     <img
                         src={photo}

@@ -2,7 +2,10 @@ import { useContext } from "react";
 import { Helmet } from "react-helmet-async";
 import { AuthContext } from "../providers/AuthProvider";
 import Swal from "sweetalert2";
+import Lottie from "lottie-react";
 
+
+import Add from '../Add.json'
 
 
 const AddEquipts = () => {
@@ -67,12 +70,9 @@ const AddEquipts = () => {
             </Helmet>
 
             <div className='lg:w-3/4 mx-auto'>
-                <div className="text-center p-10">
+                <div className="flex justify-center items-center gap-12 pt-6 pb-8">
+                    <div className="w-28"><Lottie animationData={Add}></Lottie></div>
                     <h1 className="text-5xl font-bold">Add New Equipment</h1>
-                    {/* <p className="py-6">
-                        Provident cupiditate voluptatem et in.Quaerat fugiat ut assumenda excepturi exercitationem
-                        quasi. In deleniti eaque aut repudiandae et a id nisi.
-                    </p> */}
                 </div>
                 <div className="card bg-base-100 w-full shrink-0 shadow-2xl">
                     <form onSubmit={handleAddEquipment} className="card-body">

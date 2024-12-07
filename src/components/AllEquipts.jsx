@@ -2,6 +2,11 @@ import { useState } from "react";
 import { Helmet } from "react-helmet-async";
 import { Link, useLoaderData } from "react-router-dom";
 
+import Lottie from "lottie-react";
+
+
+import Delivery from '../Delivery.json'
+
 
 
 const AllEquipts = () => {
@@ -26,6 +31,10 @@ const AllEquipts = () => {
                 <title>SportsSphere | All Equipments</title>
             </Helmet>
             <h2 className="mt-11 mb-8 text-4xl font-semibold">All Equipment List: {equipments.length}</h2>
+
+            <div className="w-56">
+                <Lottie animationData={Delivery}></Lottie>
+            </div>
 
             {/* sorting button */}
             <div className="flex justify-end">

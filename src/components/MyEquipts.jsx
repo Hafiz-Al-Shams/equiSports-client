@@ -2,6 +2,9 @@ import { Helmet } from "react-helmet-async";
 import { useLoaderData } from "react-router-dom";
 import EquiptCard from "./EquiptCard";
 import { useState } from "react";
+import Lottie from "lottie-react";
+
+import MyList from '../MyList.json'
 
 
 
@@ -13,11 +16,14 @@ const MyEquipts = () => {
 
 
     return (
-        <div className="m-20">
+        <div className="mx-20">
             <Helmet>
                 <title>SportsSphere | My List</title>
             </Helmet>
-            <h1 className="text-2xl text-center font-semibold mb-8">My Equipment List: {equipments.length}</h1>
+            <div className="flex justify-center items-center gap-10 pt-6 pb-8">
+                <div className="w-40"><Lottie animationData={MyList}></Lottie></div>
+                <h1 className="mt-11 mb-8 text-4xl font-semibold">{`My Equipment List: ${equipments.length}`}</h1>
+            </div>
 
             {
                 equipments.length == 0 ? <h2>u have added no equipment</h2>
