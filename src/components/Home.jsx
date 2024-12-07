@@ -1,5 +1,7 @@
 import { Helmet } from "react-helmet-async";
 import { Link, useLoaderData } from "react-router-dom";
+import AwesomeSlider from 'react-awesome-slider';
+import 'react-awesome-slider/dist/styles.css';
 
 
 
@@ -14,11 +16,24 @@ const Home = () => {
             <Helmet>
                 <title>SportsSphere | Home</title>
             </Helmet>
-            <h1 className="text-4xl text-center my-12">THIS is HOME</h1>
+            <h1 className="text-4xl text-center my-0">THIS is HOME</h1>
+
+
+
+
+
+            <div className="mb-24">
+                <AwesomeSlider>
+                    <div><img className="w-full" src="https://i.ibb.co.com/HhK2Cz5/slider1.jpg" alt="" /></div>
+                    <div><img className="w-full" src="https://i.ibb.co.com/cJCn0mF/slider2.jpg" alt="" /></div>
+                    <div><img className="w-full" src="https://i.ibb.co.com/mCKMsH4/slider3.jpg" alt="" /></div>
+                    <div><img className="w-full" src="https://i.ibb.co.com/0Zvw97q/slider4.jpg" alt="" /></div>
+                </AwesomeSlider>
+            </div>
 
 
             <div className="w-10/12 mx-auto">
-                <h2 className="text-3xl font-semibold text-center mt-16 mb-4">Sports Categories</h2>
+                <h2 className="text-3xl font-semibold text-center mt-0 mb-4">Sports Categories</h2>
                 <div className="flex gap-10">
                     <Link><button className="btn btn-lg btn-outline btn-primary text-lg font-bold">Cricket</button></Link>
                     <Link><button className="btn btn-lg btn-outline btn-primary text-lg font-bold">Badminton</button></Link>
