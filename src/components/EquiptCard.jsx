@@ -29,7 +29,7 @@ const EquiptCard = ({ equipment, equipments, setEquipments }) => {
 
                 console.log('delete confirmed');
 
-                fetch(`http://localhost:5000/equipments/${_id}`, {
+                fetch(`https://equi-sports-server.vercel.app/equipments/${_id}`, {
                     method: 'DELETE'
                 })
                     .then(res => res.json())

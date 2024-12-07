@@ -23,12 +23,12 @@ const router = createBrowserRouter([
             {
                 path: '/',
                 element: <Home></Home>,
-                loader: () => fetch('http://localhost:5000/fixedEquipments')
+                loader: () => fetch('https://equi-sports-server.vercel.app/fixedEquipments')
             },
             {
                 path: '/allEquipments',
                 element: <AllEquipts></AllEquipts>,
-                loader: () => fetch('http://localhost:5000/equipments')
+                loader: () => fetch('https://equi-sports-server.vercel.app/equipments')
             },
             {
                 path: '/addEquipments',
@@ -37,7 +37,7 @@ const router = createBrowserRouter([
             {
                 path: '/updateEquipments/:id',
                 element: <PrivateRoute><UpdateEquipts></UpdateEquipts></PrivateRoute>,
-                loader: ({ params }) => fetch(`http://localhost:5000/equipments/${params.id}`)
+                loader: ({ params }) => fetch(`https://equi-sports-server.vercel.app/equipments/${params.id}`)
             },
             {
                 path: '/login',
@@ -50,7 +50,7 @@ const router = createBrowserRouter([
             // {
             //     path: '/myEquipmentsList',
             //     element: <PrivateRoute><MyEquipts></MyEquipts></PrivateRoute>,
-            //     loader: () => fetch('http://localhost:5000/equipments')
+            //     loader: () => fetch('https://equi-sports-server.vercel.app/equipments')
             // },
 
 
@@ -59,7 +59,7 @@ const router = createBrowserRouter([
             {
                 path: '/myEquipmentsList/:emailId',
                 element: <PrivateRoute><MyEquipts></MyEquipts></PrivateRoute>,
-                loader: ({ params }) => fetch(`http://localhost:5000/equipments/email/${params.emailId}`)
+                loader: ({ params }) => fetch(`https://equi-sports-server.vercel.app/equipments/email/${params.emailId}`)
             },
 
             // testing area ends
@@ -68,7 +68,7 @@ const router = createBrowserRouter([
             {
                 path: '/equipments/:equipmentId',
                 element: <PrivateRoute><ViewDetails></ViewDetails></PrivateRoute>,
-                loader: ({ params }) => fetch(`http://localhost:5000/equipments/${params.equipmentId}`)
+                loader: ({ params }) => fetch(`https://equi-sports-server.vercel.app/equipments/${params.equipmentId}`)
             },
         ]
     },
