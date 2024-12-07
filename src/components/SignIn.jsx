@@ -27,7 +27,7 @@ const SignIn = () => {
                     confirmButtonText: 'ok'
                 });
                 // e.target.reset();
-                // navigate('/myEquipmentsList');
+                navigate(`/myEquipmentsList/${result.user.email}`);
             })
             .catch(error => {
                 console.log('ERROR from Firebase', error.message);
@@ -50,7 +50,7 @@ const SignIn = () => {
                     icon: 'success',
                     confirmButtonText: 'ok'
                 });
-                navigate('/myEquipmentsList');
+                navigate(`/myEquipmentsList/${result.user.email}`);
             })
             .catch(error => console.log('ERROR', error.message))
     }

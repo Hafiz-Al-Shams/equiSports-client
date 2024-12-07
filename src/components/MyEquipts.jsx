@@ -19,7 +19,22 @@ const MyEquipts = () => {
             </Helmet>
             <h1 className="text-2xl text-center font-semibold mb-8">My Equipment List: {equipments.length}</h1>
 
-            <div className="grid grid-cols-3 gap-y-24">
+            {
+                equipments.length == 0 ? <h2>u have added no equipment</h2>
+                    :
+                    <div className="grid grid-cols-3 gap-y-24">
+                        {
+                            equipments.map(equipment => <EquiptCard
+                                key={equipment._id}
+                                equipment={equipment}
+                                equipments={equipments}
+                                setEquipments={setEquipments}
+                            ></EquiptCard>)
+                        }
+                    </div>
+            }
+
+            {/* <div className="grid grid-cols-3 gap-y-24">
                 {
                     equipments.map(equipment => <EquiptCard
                         key={equipment._id}
@@ -28,7 +43,7 @@ const MyEquipts = () => {
                         setEquipments={setEquipments}
                     ></EquiptCard>)
                 }
-            </div>
+            </div> */}
         </div>
     );
 };

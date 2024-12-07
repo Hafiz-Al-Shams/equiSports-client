@@ -23,7 +23,7 @@ const router = createBrowserRouter([
             {
                 path: '/',
                 element: <Home></Home>,
-                // loader: () => fetch('https://coffee-store-server-six-pink.vercel.app/coffee')
+                loader: () => fetch('http://localhost:5000/fixedEquipments')
             },
             {
                 path: '/allEquipments',
@@ -47,11 +47,24 @@ const router = createBrowserRouter([
                 path: '/register',
                 element: <SignUp></SignUp>,
             },
+            // {
+            //     path: '/myEquipmentsList',
+            //     element: <PrivateRoute><MyEquipts></MyEquipts></PrivateRoute>,
+            //     loader: () => fetch('http://localhost:5000/equipments')
+            // },
+
+
+            // testing area starts
+
             {
-                path: '/myEquipmentsList',
+                path: '/myEquipmentsList/:emailId',
                 element: <PrivateRoute><MyEquipts></MyEquipts></PrivateRoute>,
-                loader: () => fetch('http://localhost:5000/equipments')
+                loader: ({ params }) => fetch(`http://localhost:5000/equipments/email/${params.emailId}`)
             },
+
+            // testing area ends
+
+
             {
                 path: '/equipments/:equipmentId',
                 element: <PrivateRoute><ViewDetails></ViewDetails></PrivateRoute>,

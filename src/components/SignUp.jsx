@@ -92,7 +92,7 @@ const SignUp = () => {
                     icon: 'success',
                     confirmButtonText: 'ok'
                 });
-                navigate('/myEquipmentsList');
+                navigate(`/myEquipmentsList/${result.user.email}`);
             })
             .catch(error => console.log('ERROR', error.message))
     }

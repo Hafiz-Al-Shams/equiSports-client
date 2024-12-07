@@ -69,7 +69,9 @@ const EquiptCard = ({ equipment, equipments, setEquipments }) => {
                 <p>Description: {description}</p>
                 <div className="card-actions justify-end">
                     <div className="join join-vertical lg:join-horizontal gap-4">
-                        <button className="btn join-item">View</button>
+                        <Link to={`/equipments/${_id}`}>
+                            <button className="btn join-item">Details</button>
+                        </Link>
                         <Link to={`/updateEquipments/${_id}`}>
                             <button className="btn join-item">Edit</button>
                         </Link>

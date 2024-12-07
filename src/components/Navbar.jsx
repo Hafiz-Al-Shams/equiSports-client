@@ -32,7 +32,7 @@ const Navbar = () => {
         {
             user && <>
                 <li><NavLink to="/addEquipments">Add</NavLink></li>
-                <li><NavLink to="/myEquipmentsList">My List</NavLink></li>
+                <li><NavLink to={`/myEquipmentsList/${user.email}`}>My List</NavLink></li>
             </>
         }
     </>

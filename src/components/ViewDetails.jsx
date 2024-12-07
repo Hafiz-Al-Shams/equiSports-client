@@ -1,5 +1,8 @@
 import { Helmet } from "react-helmet-async";
 import { Link, useLoaderData, useParams } from "react-router-dom";
+import { AuthContext } from "../providers/AuthProvider";
+import { useContext } from "react";
+import Swal from "sweetalert2";
 
 
 
@@ -8,8 +11,20 @@ const ViewDetails = () => {
     const { equipmentId } = useParams();
     console.log(equipmentId);
 
+    const { user } = useContext(AuthContext);
+
     const equipment = useLoaderData();
     const { _id, name, category, description, price, rating, customization, deliveryTime, availableQuantity, photo, userName, userEmail } = equipment;
+
+
+    const handleEdit = () => {
+        Swal.fire({
+            title: 'Invalid Authority',
+            text: 'you can only edit equipment from your own list',
+            icon: 'error',
+            confirmButtonText: 'understood'
+        });
+    }
 
 
     return (
@@ -36,9 +51,15 @@ const ViewDetails = () => {
                     <p>This Equipment added by: {userName}</p>
                     <p>Email: {userEmail}</p>
                     <div className="card-actions justify-end">
-                        <Link to={`/updateEquipments/${_id}`}>
-                            <button className="btn btn-primary px-4 text-lg">Edit</button>
-                        </Link>
+                        {
+                            user.email == userEmail
+                                ?
+                                <Link to={`/updateEquipments/${_id}`}>
+                                    <button className="btn btn-primary px-4 text-lg">Edit</button>
+                                </Link>
+                                :
+                                <button onClick={handleEdit} className="btn btn-primary px-4 text-lg">Edit</button>
+                        }
                     </div>
                 </div>
             </div>
