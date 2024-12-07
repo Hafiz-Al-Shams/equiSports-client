@@ -2,6 +2,7 @@ import { useContext, useEffect, useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { AuthContext } from "../providers/AuthProvider";
 import Swal from "sweetalert2";
+import { Tooltip } from 'react-tooltip'
 
 
 
@@ -49,8 +50,12 @@ const Navbar = () => {
         <li><NavLink to="/allEquipments">All Equipments</NavLink></li>
         {
             user && <>
-                <li><NavLink to="/addEquipments">Add</NavLink></li>
-                <li><NavLink to={`/myEquipmentsList/${user.email}`}>My List</NavLink></li>
+                <li data-tooltip-id="my-tooltip"
+                    data-tooltip-content="Add New Equipment"
+                    data-tooltip-place="bottom-end"><NavLink to="/addEquipments">Add</NavLink></li>
+                <li data-tooltip-id="my-tooltip"
+                    data-tooltip-content="Your Own Equipment List"
+                    data-tooltip-place="bottom-end"><NavLink to={`/myEquipmentsList/${user.email}`}>My List</NavLink></li>
             </>
         }
     </>
@@ -92,8 +97,10 @@ const Navbar = () => {
                     user ?
                         <>
                             <div className="flex justify-center items-center gap-3">
-                                <h4 className="text-xl font-semibold">{userName}</h4>
-                                <div><img className="w-11 rounded-full" title={userName} src={profilePhoto} alt="" /></div>
+                                <p className="text-sm font-bold text-center">Current <br />User</p>
+                                <div><img data-tooltip-id="my-tooltip"
+                                    data-tooltip-content={userName}
+                                    data-tooltip-place="bottom-end" className="w-11 rounded-full cursor-pointer" src={profilePhoto} alt="userPhoto" /></div>
                                 <div><a onClick={handleLogOut} className="btn">Log Out</a></div>
                             </div>
                         </>
@@ -105,6 +112,7 @@ const Navbar = () => {
                         </>
                 }
             </div>
+            <Tooltip id="my-tooltip" />
         </div>
     );
 };

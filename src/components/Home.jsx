@@ -2,6 +2,7 @@ import { Helmet } from "react-helmet-async";
 import { Link, useLoaderData } from "react-router-dom";
 import AwesomeSlider from 'react-awesome-slider';
 import 'react-awesome-slider/dist/styles.css';
+import { useState } from "react";
 
 
 
@@ -42,13 +43,37 @@ const Home = () => {
     ];
 
 
+    // toggling dark-light theme
+    const [isDark, setIsDark] = useState(false);
+
+    const toggleTheme = () => {
+        setIsDark(!isDark);
+    };
+
+
 
     return (
-        <div>
+        <div className={`${isDark ? "bg-gray-800 text-white" : "bg-white text-gray-900"
+            }`}>
             <Helmet>
                 <title>SportsSphere | Home</title>
             </Helmet>
-            <h1 className="text-6xl font-semibold text-center my-10">SportsSphere - Elite Sports Shop</h1>
+            {/* mode changing section */}
+            <div className="text-right w-11/12 mx-auto pt-6">
+                <h1 className="text-lg font-semibold mb-1.5">
+                    {isDark ? "Dark Mode" : "Light Mode"}
+                </h1>
+                <button
+                    onClick={toggleTheme}
+                    className="btn btn-primary btn-sm"
+                >
+                    Toggle {isDark ? "Light" : "Dark"}
+                </button>
+            </div>
+
+
+
+            <h1 className="text-6xl font-semibold text-center pb-12 -mt-12">SportsSphere - Elite Sports Shop</h1>
 
 
 
@@ -86,8 +111,8 @@ const Home = () => {
                                     src={equipment.photo}
                                     alt="Shoes" />
                             </figure>
-                            <div className="card-body">
-                                <h2 className="card-title">Name: {name}</h2>
+                            <div className="card-body text-black">
+                                <h2 className="card-title">Name: {equipment.name}</h2>
                                 <p>Price: {equipment.price}</p>
                                 <p>Available Quantity: {equipment.availableQuantity}</p>
                                 <p>Description: {equipment.description}</p>
@@ -111,7 +136,7 @@ const Home = () => {
 
 
             {/* reviews section */}
-            <section className="bg-blue-100 py-10">
+            <section className="bg-blue-100 py-20">
                 <div className="max-w-6xl mx-auto px-6">
                     <h2 className="text-3xl font-bold text-gray-800 text-center mb-8">
                         What Our Customers Say
