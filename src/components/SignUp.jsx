@@ -59,7 +59,7 @@ const SignUp = () => {
 
                         logOutUser()
                             .then(() => {
-                                console.log('user log out successful');
+                                // console.log('user log out successful');
                                 Swal.fire({
                                     title: 'Registration Successful',
                                     text: 'Now please Login to Continue',

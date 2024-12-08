@@ -6,7 +6,7 @@ import { Link, useLoaderData, useParams } from "react-router-dom";
 const CategoryData = () => {
 
     const { category } = useParams();
-    console.log(category);
+    // console.log(category);
 
     const equipments = useLoaderData();
 

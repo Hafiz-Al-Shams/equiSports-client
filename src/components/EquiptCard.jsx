@@ -13,7 +13,7 @@ const EquiptCard = ({ equipment, equipments, setEquipments }) => {
 
     const handleDelete = _id => {
 
-        console.log(_id);
+        // console.log(_id);
 
 
         Swal.fire({
@@ -27,7 +27,7 @@ const EquiptCard = ({ equipment, equipments, setEquipments }) => {
         }).then((result) => {
             if (result.isConfirmed) {
 
-                console.log('delete confirmed');
+                // console.log('delete confirmed');
 
                 fetch(`https://equi-sports-server.vercel.app/equipments/${_id}`, {
                     method: 'DELETE'

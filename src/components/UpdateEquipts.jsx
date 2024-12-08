@@ -41,7 +41,7 @@ const UpdateEquipts = () => {
         const userEmail = form.userEmail.value;
 
         const UpdatedEquipment = { name, category, description, price, rating, customization, deliveryTime, availableQuantity, photo, userName, userEmail };
-        console.log(UpdatedEquipment);
+        // console.log(UpdatedEquipment);
 
         // sending data to the server
         fetch(`https://equi-sports-server.vercel.app/equipments/${_id}`, {
@@ -53,13 +53,13 @@ const UpdateEquipts = () => {
         })
             .then(res => res.json())
             .then(data => {
-                console.log(data);
+                // console.log(data);
 
 
 
 
                 if (data.modifiedCount > 0) {
-                    console.log('successfully updated');
+                    // console.log('successfully updated');
                     Swal.fire({
                         title: 'Success!',
                         text: 'Equipment updated successfully',

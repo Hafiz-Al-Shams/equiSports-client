@@ -20,7 +20,7 @@ const SignIn = () => {
 
         loginUser(email, password)
             .then(result => {
-                console.log(result.user);
+                // console.log(result.user);
                 Swal.fire({
                     title: 'Login Successful',
                     icon: 'success',
@@ -44,7 +44,7 @@ const SignIn = () => {
     const handleGoogleLogIn = () => {
         logInWithGoogle()
             .then(result => {
-                console.log(result.user);
+                // console.log(result.user);
                 Swal.fire({
                     title: 'Login Successful',
                     icon: 'success',

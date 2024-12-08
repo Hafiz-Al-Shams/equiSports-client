@@ -31,7 +31,7 @@ const AddEquipts = () => {
         const userEmail = form.userEmail.value;
 
         const newEquipment = { name, category, description, price, rating, customization, deliveryTime, availableQuantity, photo, userName, userEmail };
-        console.log(newEquipment);
+        // console.log(newEquipment);
 
         // sending data to the server
         fetch('https://equi-sports-server.vercel.app/equipments', {
@@ -43,13 +43,13 @@ const AddEquipts = () => {
         })
             .then(res => res.json())
             .then(data => {
-                console.log(data);
+                // console.log(data);
 
 
 
 
                 if (data.insertedId) {
-                    console.log('successfully added');
+                    // console.log('successfully added');
                     Swal.fire({
                         title: 'Success!',
                         text: 'Equipment added successfully',

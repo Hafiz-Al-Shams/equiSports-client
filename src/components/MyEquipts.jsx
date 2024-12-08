@@ -26,7 +26,10 @@ const MyEquipts = () => {
             </div>
 
             {
-                equipments.length == 0 ? <h2>u have added no equipment</h2>
+                equipments.length == 0 ? <div className="">
+                    <h2 className="text-5xl font-bold text-red-500 text-center mb-8">No Equipment Detected!!</h2>
+                    <p className="text-3xl font-semibold text-center">{`Looks like You haven't added any Equipment yet, time to load up!`}</p>
+                </div>
                     :
                     <div className="grid grid-cols-3 gap-y-24">
                         {
