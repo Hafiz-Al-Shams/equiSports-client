@@ -12,10 +12,6 @@ const EquiptCard = ({ equipment, equipments, setEquipments }) => {
 
 
     const handleDelete = _id => {
-
-        // console.log(_id);
-
-
         Swal.fire({
             title: "Are you sure?",
             text: "You won't be able to revert this!",
@@ -26,7 +22,6 @@ const EquiptCard = ({ equipment, equipments, setEquipments }) => {
             confirmButtonText: "Yes, delete it!"
         }).then((result) => {
             if (result.isConfirmed) {
-
                 // console.log('delete confirmed');
 
                 fetch(`https://equi-sports-server.vercel.app/equipments/${_id}`, {

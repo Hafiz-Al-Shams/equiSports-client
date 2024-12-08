@@ -4,9 +4,7 @@ import { Link, useLoaderData } from "react-router-dom";
 
 import Lottie from "lottie-react";
 
-
-import Delivery from '../Delivery.json'
-
+import Delivery from '../Delivery.json';
 
 
 const AllEquipts = () => {
@@ -21,8 +19,6 @@ const AllEquipts = () => {
         );
         setSortedEquipments(sorted);
     };
-
-
 
 
     return (
@@ -45,8 +41,6 @@ const AllEquipts = () => {
                     {`Sort by Price (Ascending)`}
                 </button>
             </div>
-
-
             <table className="sports-table mb-28 mx-auto">
                 <thead>
                     <tr>

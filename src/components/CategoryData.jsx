@@ -6,10 +6,7 @@ import { Link, useLoaderData, useParams } from "react-router-dom";
 const CategoryData = () => {
 
     const { category } = useParams();
-    // console.log(category);
-
     const equipments = useLoaderData();
-
 
     return (
         <div className="w-11/12 mx-auto">
@@ -18,7 +15,7 @@ const CategoryData = () => {
             </Helmet>
             <h2 className="text-4xl font-semibold text-center mb-10 mt-14">{`CATEGORY: ${category}(${equipments.length})`}</h2>
 
-            <div className="grid grid-cols-3 gap-y-24 mb-28">
+            <div className="grid grid-cols-1 lg:grid-cols-3 gap-y-24 mb-28">
                 {
                     equipments.map(equipment => (
                         <div key={equipment._id} className="card card-compact bg-base-200/50 p-3.5 w-96 shadow-xl">

@@ -70,16 +70,13 @@ const Home = () => {
                 <title>SportsSphere | Home</title>
             </Helmet>
 
-
-
-
-            <div className="flex justify-between items-center w-11/12 mx-auto pt-12 pb-16">
+            <div className="flex flex-col lg:flex-row justify-between items-center w-11/12 mx-auto pt-12 pb-16">
                 <div className="w-40">
                     <Lottie animationData={DynamicHome}></Lottie>
                 </div>
-                <div className="w-8/12 mx-auto space-y-4">
-                    <h1 className="text-6xl font-semibold text-center">SportsSphere - Elite Sports Shop</h1>
-                    <p className="text-center text-lg font-semibold">Where passion for sports meets impeccable craftsmanship. Your ultimate destination for premium sports equipments. Our store features an array of high-performance equipments designed for champions. We offer an extensive collection tailored for athletes and fitness enthusiasts, combining style, durability, and performance.</p>
+                <div className="w-9/12 mx-auto space-y-5">
+                    <h1 className="text-2xl md:text-5xl lg:text-6xl font-semibold text-center">SportsSphere - Elite Sports Shop</h1>
+                    <p className="text-center text-lg font-semibold">Where passion for sports meets impeccable craftsmanship. Your ultimate destination for premium sports equipments. Our store features an array of high-performance equipments designed for champions. We offer an extensive collection tailored for athletes and fitness enthusiasts, combining style, durability, and performance. Explore a wide range of cutting-edge sports equipments crafted to elevate your game. From professionals to casual enthusiasts, our collection caters to every need with unmatched quality and comfort. Find your stride that empowers you to excel in every sport category.</p>
                 </div>
                 {/* mode changing section */}
                 <div className="text-right">
@@ -141,7 +138,7 @@ const Home = () => {
 
             <div className="w-10/12 mx-auto">
                 <h2 className="text-5xl font-semibold text-center mt-12 mb-10">Sports Categories</h2>
-                <div className="flex gap-10 w-10/12 mx-auto mb-24">
+                <div className="flex flex-col lg:flex-row gap-10 w-10/12 mx-auto mb-24">
                     {
                         categories.map(category => (
                             <Link key={category.id} to={`/equipments/category/${category.category}`}><button className="btn btn-lg btn-outline btn-secondary text-xl font-bold">{category.category}</button></Link>
@@ -152,7 +149,7 @@ const Home = () => {
 
 
 
-            <div className="grid grid-cols-3 gap-y-24 w-11/12 mx-auto mb-10">
+            <div className="grid grid-cols-1 lg:grid-cols-3 gap-y-24 w-11/12 mx-auto mb-10">
                 {
                     equipments.map(equipment => (
                         <div key={equipment._id} className="card card-compact bg-base-200/60 w-96 shadow-xl p-3">
@@ -265,7 +262,7 @@ const Home = () => {
                     </div>
                     <div className="mt-8 flex justify-center">
                         <div className="w-full max-w-md">
-                            <div className="flex items-center">
+                            <div className="flex flex-col md:flex-row items-center">
                                 <input
                                     type="email"
                                     placeholder="Enter your email"

@@ -46,10 +46,6 @@ const AddEquipts = () => {
             .then(res => res.json())
             .then(data => {
                 // console.log(data);
-
-
-
-
                 if (data.insertedId) {
                     // console.log('successfully added');
                     Swal.fire({
@@ -141,7 +137,6 @@ const AddEquipts = () => {
                             </div>
                         </div>
 
-
                         <div className="form-control">
                             <label className="label">
                                 <span className="label-text font-semibold text-xl">PhotoURL</span>
@@ -149,7 +144,6 @@ const AddEquipts = () => {
                             <input type="text" name='photo' placeholder="photoURL" className="input input-bordered" required />
 
                         </div>
-
 
                         {/* form sixth row */}
                         <div className='flex flex-col lg:flex-row gap-5'>
@@ -166,9 +160,6 @@ const AddEquipts = () => {
                                 <input type="text" name='userEmail' defaultValue={user.email} readOnly placeholder="" className="input input-bordered" required />
                             </div>
                         </div>
-
-
-
 
                         <div className="form-control mt-6">
                             <button className="btn btn-primary text-lg">Add Equipment</button>

@@ -1,6 +1,5 @@
 
 
-
 const Footer = () => {
     return (
         <footer className="footer footer-center bg-primary/85 text-primary-content p-10 mt-10">
@@ -14,7 +13,9 @@ const Footer = () => {
 
             </aside>
             <nav>
-                <h4 className="text-2xl font-semibold">Contact Us</h4>
+                <h4 className="text-2xl font-bold">Contact Us</h4>
+                <p className="text-lg font-medium">Email: <a href="">grandfather@greatgrandfather.com</a></p>
+                <p className="pb-4 text-lg font-medium">Phone: <a href="">0.000000001</a></p>
                 <div className="grid grid-flow-col gap-4">
                     <a>
                         <svg
