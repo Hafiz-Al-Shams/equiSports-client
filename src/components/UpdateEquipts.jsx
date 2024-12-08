@@ -12,7 +12,7 @@ import Update from '../Update.json'
 const UpdateEquipts = () => {
 
     const { user } = useContext(AuthContext);
-    console.log(user);
+    // console.log(user);
 
     const navigate = useNavigate();
 
@@ -67,7 +67,7 @@ const UpdateEquipts = () => {
                         confirmButtonText: 'Cool'
                     });
                     form.reset();
-                    navigate('/myEquipmentsList');
+                    navigate(`/myEquipmentsList/${user.email}`);
                 }
             })
 
@@ -80,11 +80,7 @@ const UpdateEquipts = () => {
             <Helmet>
                 <title>SportsSphere | Update</title>
             </Helmet>
-            <div className='lg:w-3/4 mx-auto'>
-                {/* <div className="text-center p-10">
-                    <h1 className="text-5xl font-bold">Update Equipment: {name}</h1>
-                </div> */}
-
+            <div className='lg:w-3/4 mx-auto mb-28'>
                 <div className="flex justify-center items-center gap-12 pt-6 pb-8">
                     <div className="w-28"><Lottie animationData={Update}></Lottie></div>
                     <h1 className="text-5xl font-bold">Update Equipment: {name}</h1>
@@ -96,13 +92,13 @@ const UpdateEquipts = () => {
                         <div className='flex flex-col lg:flex-row gap-5'>
                             <div className="form-control flex-1">
                                 <label className="label">
-                                    <span className="label-text">Name</span>
+                                    <span className="label-text font-semibold text-xl">Name</span>
                                 </label>
                                 <input type="text" name='name' defaultValue={name} placeholder="equipment name" className="input input-bordered" required />
                             </div>
                             <div className="form-control flex-1">
                                 <label className="label">
-                                    <span className="label-text">Category Name</span>
+                                    <span className="label-text font-semibold text-xl">Category Name</span>
                                 </label>
                                 <input type="text" name='category' defaultValue={category} placeholder="category name" className="input input-bordered" required />
                             </div>
@@ -111,13 +107,13 @@ const UpdateEquipts = () => {
                         <div className='flex flex-col lg:flex-row gap-5'>
                             <div className="form-control flex-1">
                                 <label className="label">
-                                    <span className="label-text">Description</span>
+                                    <span className="label-text font-semibold text-xl">Description</span>
                                 </label>
                                 <input type="text" name='description' defaultValue={description} placeholder="description" className="input input-bordered" required />
                             </div>
                             <div className="form-control flex-1">
                                 <label className="label">
-                                    <span className="label-text">Price</span>
+                                    <span className="label-text font-semibold text-xl">Price</span>
                                 </label>
                                 <input type="number" name='price' defaultValue={price} placeholder="price" className="input input-bordered" required />
                             </div>
@@ -126,13 +122,13 @@ const UpdateEquipts = () => {
                         <div className='flex flex-col lg:flex-row gap-5'>
                             <div className="form-control flex-1">
                                 <label className="label">
-                                    <span className="label-text">Rating</span>
+                                    <span className="label-text font-semibold text-xl">Rating</span>
                                 </label>
                                 <input type="text" name='rating' defaultValue={rating} placeholder="rating" className="input input-bordered" required />
                             </div>
                             <div className="form-control flex-1">
                                 <label className="label">
-                                    <span className="label-text">Customization</span>
+                                    <span className="label-text font-semibold text-xl">Customization</span>
                                 </label>
                                 <input type="text" name='customization' defaultValue={customization} placeholder="customization" className="input input-bordered" required />
                             </div>
@@ -142,13 +138,13 @@ const UpdateEquipts = () => {
                         <div className='flex flex-col lg:flex-row gap-5'>
                             <div className="form-control flex-1">
                                 <label className="label">
-                                    <span className="label-text">Processing Time</span>
+                                    <span className="label-text font-semibold text-xl">Processing Time</span>
                                 </label>
                                 <input type="number" name='deliveryTime' defaultValue={deliveryTime} placeholder="delivery time in hours" className="input input-bordered" required />
                             </div>
                             <div className="form-control flex-1">
                                 <label className="label">
-                                    <span className="label-text">Stock Status</span>
+                                    <span className="label-text font-semibold text-xl">Stock Status</span>
                                 </label>
                                 <input type="text" name='availableQuantity' defaultValue={availableQuantity} placeholder="available product quantity" className="input input-bordered" required />
                             </div>
@@ -157,7 +153,7 @@ const UpdateEquipts = () => {
 
                         <div className="form-control">
                             <label className="label">
-                                <span className="label-text">PhotoURL</span>
+                                <span className="label-text font-semibold text-xl">PhotoURL</span>
                             </label>
                             <input type="text" name='photo' defaultValue={photo} placeholder="photoURL" className="input input-bordered" required />
 
@@ -168,13 +164,13 @@ const UpdateEquipts = () => {
                         <div className='flex flex-col lg:flex-row gap-5'>
                             <div className="form-control flex-1">
                                 <label className="label">
-                                    <span className="label-text">User Name</span>
+                                    <span className="label-text font-semibold text-xl">User Name</span>
                                 </label>
                                 <input type="text" name='userName' defaultValue={userName} readOnly className="input input-bordered" required />
                             </div>
                             <div className="form-control flex-1">
                                 <label className="label">
-                                    <span className="label-text">User Email</span>
+                                    <span className="label-text font-semibold text-xl">User Email</span>
                                 </label>
                                 <input type="text" name='userEmail' defaultValue={userEmail} readOnly placeholder="" className="input input-bordered" required />
                             </div>
@@ -184,7 +180,7 @@ const UpdateEquipts = () => {
 
 
                         <div className="form-control mt-6">
-                            <button className="btn btn-primary">Update Equipment</button>
+                            <button className="btn btn-primary text-lg">Update Equipment</button>
                         </div>
                     </form>
                 </div>

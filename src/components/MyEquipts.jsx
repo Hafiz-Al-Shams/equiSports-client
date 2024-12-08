@@ -31,7 +31,7 @@ const MyEquipts = () => {
                     <p className="text-3xl font-semibold text-center">{`Looks like You haven't added any Equipment yet, time to load up!`}</p>
                 </div>
                     :
-                    <div className="grid grid-cols-3 gap-y-24">
+                    <div className="grid grid-cols-3 gap-y-24 mb-28">
                         {
                             equipments.map(equipment => <EquiptCard
                                 key={equipment._id}
@@ -42,17 +42,6 @@ const MyEquipts = () => {
                         }
                     </div>
             }
-
-            {/* <div className="grid grid-cols-3 gap-y-24">
-                {
-                    equipments.map(equipment => <EquiptCard
-                        key={equipment._id}
-                        equipment={equipment}
-                        equipments={equipments}
-                        setEquipments={setEquipments}
-                    ></EquiptCard>)
-                }
-            </div> */}
         </div>
     );
 };

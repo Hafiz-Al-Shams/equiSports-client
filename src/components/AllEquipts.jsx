@@ -40,14 +40,14 @@ const AllEquipts = () => {
             <div className="flex justify-end">
                 <button
                     onClick={handleSortByPrice}
-                    className="btn btn-secondary mb-4"
+                    className="btn btn-secondary mb-4 font-bold"
                 >
                     {`Sort by Price (Ascending)`}
                 </button>
             </div>
 
 
-            <table className="sports-table mb-20 mx-auto">
+            <table className="sports-table mb-28 mx-auto">
                 <thead>
                     <tr>
                         <th>ID</th>

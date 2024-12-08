@@ -62,7 +62,7 @@ const Navbar = () => {
 
 
     return (
-        <div className="navbar font-semibold bg-orange-400/85 py-4 px-8">
+        <div className="navbar font-semibold bg-orange-400/80 py-6 px-8">
             <div className="navbar-start">
                 <div className="dropdown">
                     <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -85,10 +85,10 @@ const Navbar = () => {
                         {links}
                     </ul>
                 </div>
-                <Link to="/" className="text-2xl">SportsSphere</Link>
+                <Link to="/" className="text-3xl font-bold">SportsSphere</Link>
             </div>
             <div className="navbar-center hidden lg:flex">
-                <ul className="menu menu-horizontal px-1 space-x-4">
+                <ul className="menu menu-horizontal px-1 space-x-4 font-bold">
                     {links}
                 </ul>
             </div>
@@ -102,14 +102,14 @@ const Navbar = () => {
                                 <div><img data-tooltip-id="my-tooltip"
                                     data-tooltip-content={userName}
                                     data-tooltip-place="bottom-end" className="w-11 rounded-full cursor-pointer" src={profilePhoto} alt="photo" /></div>
-                                <div><a onClick={handleLogOut} className="btn">Log Out</a></div>
+                                <div><a onClick={handleLogOut} className="btn bg-yellow-50 font-bold">Log Out</a></div>
                             </div>
                         </>
                         :
                         <>
-                            <NavLink to="/login"><button className="btn btn-ghost">Login</button></NavLink>
-                            <p className="px-1">or</p>
-                            <NavLink to="/register"><button className="btn btn-ghost">Register</button></NavLink>
+                            <NavLink to="/login"><button className="btn bg-yellow-50 font-bold">Login</button></NavLink>
+                            <p className="px-3">or</p>
+                            <NavLink to="/register"><button className="btn bg-yellow-50 font-bold">Register</button></NavLink>
                         </>
                 }
             </div>

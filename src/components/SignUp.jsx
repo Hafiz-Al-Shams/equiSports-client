@@ -35,7 +35,7 @@ const SignUp = () => {
         if (!passRegex.test(password)) {
             Swal.fire({
                 // title: 'Error!',
-                text: 'at least one number, one uppercase & one lowercase is needed',
+                text: 'at least One Number, One Uppercase & One Lowercase is needed',
                 icon: 'error',
                 confirmButtonText: 'Try Again'
             });
@@ -48,15 +48,6 @@ const SignUp = () => {
 
                 updateUserProfile({ displayName: name, photoURL: photo })
                     .then(() => {
-
-                        // Swal.fire({
-                        //     title: 'Registration Successful',
-                        //     // text: 'Now please Login to continue',
-                        //     icon: 'success',
-                        //     confirmButtonText: 'ok'
-                        // });
-
-
                         logOutUser()
                             .then(() => {
                                 // console.log('user log out successful');
@@ -104,13 +95,13 @@ const SignUp = () => {
 
 
     return (
-        <div className="hero bg-base-200 min-h-screen">
+        <div className="hero bg-base-100 min-h-[60vh] mt-10 mb-20">
             <Helmet>
                 <title>SportsSphere | SignUp</title>
             </Helmet>
             <div className="hero-content flex-col">
                 <div className="text-center lg:text-left">
-                    <h1 className="text-3xl font-bold">Register now!</h1>
+                    <h1 className="text-3xl font-bold">WELCOME! Register Here</h1>
                 </div>
                 <div className="card bg-base-100 w-full max-w-md shrink-0 shadow-2xl p-8">
                     <form onSubmit={handleSignup} className="card-body">
@@ -149,7 +140,7 @@ const SignUp = () => {
                         </Link>
                     </div>
                     <div className="text-center mt-3">
-                        <button onClick={handleGoogleLogIn} className="btn btn-ghost text-lg font-medium px-8">Log in with Google</button>
+                        <button onClick={handleGoogleLogIn} className="btn text-lg font-medium px-8">Log in with Google</button>
                     </div>
                 </div>
             </div>

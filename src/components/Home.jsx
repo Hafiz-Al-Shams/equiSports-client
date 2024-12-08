@@ -1,6 +1,5 @@
 import { Helmet } from "react-helmet-async";
 import { Link, useLoaderData } from "react-router-dom";
-// import AwesomeSlider from 'react-awesome-slider';
 import 'react-awesome-slider/dist/styles.css';
 import { useState } from "react";
 import Lottie from "lottie-react";
@@ -55,8 +54,6 @@ const Home = () => {
     ];
 
 
-
-
     // toggling dark-light theme
     const [isDark, setIsDark] = useState(false);
 
@@ -76,11 +73,14 @@ const Home = () => {
 
 
 
-            <div className="flex justify-between items-center w-11/12 mx-auto pt-0 pb-10">
+            <div className="flex justify-between items-center w-11/12 mx-auto pt-12 pb-16">
                 <div className="w-40">
                     <Lottie animationData={DynamicHome}></Lottie>
                 </div>
-                <h1 className="text-6xl font-semibold text-center">SportsSphere - Elite Sports Shop</h1>
+                <div className="w-8/12 mx-auto space-y-4">
+                    <h1 className="text-6xl font-semibold text-center">SportsSphere - Elite Sports Shop</h1>
+                    <p className="text-center text-lg font-semibold">Where passion for sports meets impeccable craftsmanship. Your ultimate destination for premium sports equipments. Our store features an array of high-performance equipments designed for champions. We offer an extensive collection tailored for athletes and fitness enthusiasts, combining style, durability, and performance.</p>
+                </div>
                 {/* mode changing section */}
                 <div className="text-right">
                     <h1 className="text-lg font-semibold mb-1">
@@ -97,17 +97,7 @@ const Home = () => {
 
 
 
-
-            {/* <div className="mb-24">
-                <AwesomeSlider>
-                    <div><img className="w-full" src="https://i.ibb.co.com/HhK2Cz5/slider1.jpg" alt="" /></div>
-                    <div><img className="w-full" src="https://i.ibb.co.com/cJCn0mF/slider2.jpg" alt="" /></div>
-                    <div><img className="w-full" src="https://i.ibb.co.com/mCKMsH4/slider3.jpg" alt="" /></div>
-                    <div><img className="w-full" src="https://i.ibb.co.com/0Zvw97q/slider4.jpg" alt="" /></div>
-                </AwesomeSlider>
-            </div> */}
-
-            {/* from daisyui */}
+            {/* carousel from daisyui */}
             <div className="carousel w-full h-[85vh]">
                 <div id="slide1" className="carousel-item relative w-full">
                     <img
@@ -120,7 +110,7 @@ const Home = () => {
                 </div>
                 <div id="slide2" className="carousel-item relative w-full">
                     <img
-                        src="https://i.ibb.co.com/cJCn0mF/slider2.jpg"
+                        src="https://i.ibb.co.com/0Zvw97q/slider4.jpg"
                         className="w-full" />
                     <div className="absolute left-5 right-5 top-1/2 flex -translate-y-1/2 transform justify-between">
                         <a href="#slide1" className="btn btn-circle">❮</a>
@@ -138,7 +128,7 @@ const Home = () => {
                 </div>
                 <div id="slide4" className="carousel-item relative w-full">
                     <img
-                        src="https://i.ibb.co.com/0Zvw97q/slider4.jpg"
+                        src="https://i.ibb.co.com/cJCn0mF/slider2.jpg"
                         className="w-full" />
                     <div className="absolute left-5 right-5 top-1/2 flex -translate-y-1/2 transform justify-between">
                         <a href="#slide3" className="btn btn-circle">❮</a>
@@ -150,11 +140,11 @@ const Home = () => {
 
 
             <div className="w-10/12 mx-auto">
-                <h2 className="text-3xl font-semibold text-center mt-0 mb-4">Sports Categories</h2>
-                <div className="flex gap-10">
+                <h2 className="text-5xl font-semibold text-center mt-12 mb-10">Sports Categories</h2>
+                <div className="flex gap-10 w-10/12 mx-auto mb-24">
                     {
                         categories.map(category => (
-                            <Link key={category.id} to={`/equipments/category/${category.category}`}><button className="btn btn-lg btn-outline btn-primary text-lg font-bold">{category.category}</button></Link>
+                            <Link key={category.id} to={`/equipments/category/${category.category}`}><button className="btn btn-lg btn-outline btn-secondary text-xl font-bold">{category.category}</button></Link>
                         ))
                     }
                 </div>
@@ -162,24 +152,24 @@ const Home = () => {
 
 
 
-            <div className="grid grid-cols-3 gap-y-24 w-9/12 mx-auto">
+            <div className="grid grid-cols-3 gap-y-24 w-11/12 mx-auto mb-10">
                 {
                     equipments.map(equipment => (
-                        <div key={equipment._id} className="card card-compact bg-base-100 w-96 shadow-xl">
+                        <div key={equipment._id} className="card card-compact bg-base-200/60 w-96 shadow-xl p-3">
                             <figure>
                                 <img
-                                    className="h-52"
+                                    className="h-52 p-1.5"
                                     src={equipment.photo}
-                                    alt="Shoes" />
+                                    alt="" />
                             </figure>
                             <div className="card-body text-black">
-                                <h2 className="card-title">Name: {equipment.name}</h2>
-                                <p>Price: {equipment.price}</p>
-                                <p>Available Quantity: {equipment.availableQuantity}</p>
-                                <p>Description: {equipment.description}</p>
-                                <div className="card-actions justify-end">
+                                <h2 className="card-title text-2xl">{equipment.name}</h2>
+                                <p className="font-semibold text-gray-800 text-lg">Price: {equipment.price}</p>
+                                <p className="font-semibold text-gray-800 text-lg">Available Quantity: {equipment.availableQuantity}</p>
+                                <p className="font-semibold text-gray-800 text-lg">Description: {equipment.description}</p>
+                                <div className="card-actions justify-end pt-2">
                                     <Link to={`/equipments/${equipment._id}`}>
-                                        <button className="btn btn-primary">View Details</button>
+                                        <button className="btn btn-primary font-bold">View Details</button>
                                     </Link>
                                 </div>
                             </div>
@@ -189,15 +179,15 @@ const Home = () => {
                 }
             </div>
 
-            <div>
+            <div className="text-center mb-24">
                 <Link to="/allEquipments">
-                    <button className="btn btn-secondary btn-lg">View All</button>
+                    <button className="btn btn-secondary btn-lg font-semibold">View All</button>
                 </Link>
             </div>
 
 
             {/* reviews section */}
-            <section className="bg-blue-100 py-20">
+            <section className="bg-blue-100 py-20 mb-28">
                 <div className="max-w-6xl mx-auto px-6">
                     <h2 className="text-3xl font-bold text-gray-800 text-center mb-8">
                         What Our Customers Say
@@ -263,7 +253,7 @@ const Home = () => {
 
 
             {/* newsletter section */}
-            <section className="bg-gray-100 py-10">
+            <section className="bg-gray-100 py-10 mb-28">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div className="text-center">
                         <h2 className="text-3xl font-bold text-gray-800 sm:text-4xl">
