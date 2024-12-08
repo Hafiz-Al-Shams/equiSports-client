@@ -45,6 +45,18 @@ const Home = () => {
     ];
 
 
+    const categories = [
+        { id: 1, category: 'Cricket' },
+        { id: 2, category: 'Badminton' },
+        { id: 3, category: 'Tennis' },
+        { id: 4, category: 'Football' },
+        { id: 5, category: 'Basketball' },
+        { id: 6, category: 'Swimming' },
+    ];
+
+
+
+
     // toggling dark-light theme
     const [isDark, setIsDark] = useState(false);
 
@@ -99,10 +111,11 @@ const Home = () => {
             <div className="w-10/12 mx-auto">
                 <h2 className="text-3xl font-semibold text-center mt-0 mb-4">Sports Categories</h2>
                 <div className="flex gap-10">
-                    <Link><button className="btn btn-lg btn-outline btn-primary text-lg font-bold">Cricket</button></Link>
-                    <Link><button className="btn btn-lg btn-outline btn-primary text-lg font-bold">Badminton</button></Link>
-                    <Link><button className="btn btn-lg btn-outline btn-primary text-lg font-bold">Tennis</button></Link>
-                    <Link><button className="btn btn-lg btn-outline btn-primary text-lg font-bold">Football</button></Link>
+                    {
+                        categories.map(category => (
+                            <Link key={category.id} to={`/equipments/category/${category.category}`}><button className="btn btn-lg btn-outline btn-primary text-lg font-bold">{category.category}</button></Link>
+                        ))
+                    }
                 </div>
             </div>
 

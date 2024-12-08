@@ -10,6 +10,7 @@ import ViewDetails from "../components/ViewDetails";
 import ErrorPage from "../components/ErrorPage";
 import Layout from "../layouts/Layout";
 import PrivateRoute from "./PrivateRoute";
+import CategoryData from "../components/CategoryData";
 
 
 
@@ -47,28 +48,20 @@ const router = createBrowserRouter([
                 path: '/register',
                 element: <SignUp></SignUp>,
             },
-            // {
-            //     path: '/myEquipmentsList',
-            //     element: <PrivateRoute><MyEquipts></MyEquipts></PrivateRoute>,
-            //     loader: () => fetch('https://equi-sports-server.vercel.app/equipments')
-            // },
-
-
-            // testing area starts
-
             {
                 path: '/myEquipmentsList/:emailId',
                 element: <PrivateRoute><MyEquipts></MyEquipts></PrivateRoute>,
                 loader: ({ params }) => fetch(`https://equi-sports-server.vercel.app/equipments/email/${params.emailId}`)
             },
-
-            // testing area ends
-
-
             {
                 path: '/equipments/:equipmentId',
                 element: <PrivateRoute><ViewDetails></ViewDetails></PrivateRoute>,
                 loader: ({ params }) => fetch(`https://equi-sports-server.vercel.app/equipments/${params.equipmentId}`)
+            },
+            {
+                path: '/equipments/category/:category',
+                element: <CategoryData></CategoryData>,
+                loader: ({ params }) => fetch(`https://equi-sports-server.vercel.app/equipments/category/${params.category}`)
             },
         ]
     },
