@@ -1,6 +1,6 @@
 # SportsSphere - Elite Sports Shop
 
-![SportsSphere Screenshot](https://i.ibb.co.com/pvVTRXkt/Screenshot-6647.png)  
+![SportsSphere Screenshot](https://i.ibb.co.com/chdcf2B5/Screenshot-6647.png)  
 
 ## Live Project  
 🔗 [SportsSphere Live](https://equisports-project.web.app/)  
